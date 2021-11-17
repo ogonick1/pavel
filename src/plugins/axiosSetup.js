@@ -1,13 +1,14 @@
 import axios from 'axios';
-import appConfig from '../config'
+import appConfig from '../config';
 import store from './store';
 
 const axiosSetup = () => {
   axios.interceptors.request.use(
     (config) => {
+      const newConfig = config;
       const token = store.getState().token;
-      config.baseURL = appConfig.backendUrl;
-      config.headers.Authorization = `Bearer ${token}`;
+      newConfig.baseURL = appConfig.backendUrl;
+      newConfig.headers.Authorization = `Bearer ${token}`;
       return config;
     },
   );
@@ -17,6 +18,6 @@ const axiosSetup = () => {
       return Promise.reject(error.response);
     },
   );
-}
+};
 
 export default axiosSetup;

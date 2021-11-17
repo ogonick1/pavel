@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route, Link,
+} from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
@@ -40,4 +43,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withTranslation()(App);

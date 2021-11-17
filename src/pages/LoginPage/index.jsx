@@ -1,5 +1,7 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import AuthService from '../../services/authService';
@@ -8,7 +10,7 @@ import './index.css';
 
 const initialValues = {
   email: '',
-  password: ''
+  password: '',
 };
 
 const LoginPage = (props) => {
@@ -18,24 +20,23 @@ const LoginPage = (props) => {
   } = props;
   const onSubmit = async (values) => {
     try {
-      console.log(123);
       const result = await AuthService.login(values);
       setToken(result.token);
       setProfile(result.user);
-      console.log(result)
 
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error);
     }
-  }
+  };
   const validationSchema = Yup.object({
     email: Yup.string()
       .email('Неправильный email адрес')
       .required('Обязательное поле!'),
     password: Yup.string()
-      .required('Обязательное поле!')
+      .required('Обязательное поле!'),
   });
-  
+
   return (
     <Formik
       initialValues={initialValues}
@@ -63,13 +64,13 @@ const LoginPage = (props) => {
       </Form>
     </Formik>
   );
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setToken: (token) => dispatch(setToken(token)),
     setProfile: (profile) => dispatch(setProfile(profile)),
-  }
+  };
 };
 
 export default connect(null, mapDispatchToProps)(LoginPage);
