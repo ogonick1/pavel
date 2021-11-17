@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import App from './App.jsx';
-import store from './plugins/store1'
+import store from './plugins/store';
+import './plugins/i18n/index';
 import axiosSetup from './plugins/axiosSetup';
 
 axiosSetup();
@@ -13,5 +14,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

@@ -1,31 +1,26 @@
-import { INCREMENT, DECREMENT, SET_VALUE } from './actionTypes';
+import { SET_PROFILE, SET_TOKEN } from './actionTypes';
 
 const initialState = {
-  value: 0,
+  token: null,
+  profile: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case INCREMENT: {
-      return {
-        ...state,
-        value: state.value + 1,
-      };
-    }
-    case DECREMENT: {
-      return {
-        ...state,
-        value: state.value - 1,
-      };
-    }
-    case SET_VALUE: {
-      return {
-        ...state,
-        value: action.payload,
-      };
-    }
-    default:
-      return state;
+  case SET_TOKEN: {
+    return {
+      ...state,
+      token: action.payload,
+    };
+  }
+  case SET_PROFILE: {
+    return {
+      ...state,
+      profile: action.payload,
+    };
+  }
+  default:
+    return state;
   }
 };
 

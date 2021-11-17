@@ -1,49 +1,40 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import AuthService from '../../services/authService';
 import './index.css';
-// for store
-// import { increment, decrement, setValue } from '../../plugins/store/actions';
 
-const ProfilePage = ({ value, increment, decrement, setValue }) => {
+const ProfilePage = () => {
+  const { t } = useTranslation();
+  const [profile, setProfile] = useState(null);
+  const getProfile = async () => {
+    const result = await AuthService.getProfile();
+    setProfile(result);
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
   return (
     <div>
-      ProfilePage
-      <br />
-      {value}
-      <br />
-      <button onClick={increment}>
-        increment
-      </button>
-      <button onClick={decrement}>
-        decrement
-      </button>
-      <button onClick={() => setValue(777)}>
-        setValue 777
-      </button>
+      <span>
+        {t('profile-page.title')}
+      </span>
+      {profile
+        ? <div>
+          <div>
+            {profile.email}
+          </div>
+          <div>
+            {profile.firstName}
+          </div>
+          <div>
+            {profile.lastName}
+          </div>
+        </div>
+        : null}
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  value: state.value,
-});
-
-// for store1
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increment: () => dispatch({ type: 'INCREMENT' }),
-    decrement: () => dispatch({ type: 'DECREMENT' }),
-    setValue: (value) => dispatch({ type: 'SET_VALUE', payload: value }),
-  }
-};
-
-// for store
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     increment: () => dispatch(increment()),
-//     decrement: () => dispatch(decrement()),
-//     setValue: (value) => dispatch(setValue(value)),
-//   }
-// };
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
+export default ProfilePage;

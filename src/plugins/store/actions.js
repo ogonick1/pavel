@@ -1,14 +1,11 @@
-import { INCREMENT, DECREMENT, SET_VALUE } from './actionTypes';
+import { SET_TOKEN, SET_PROFILE } from './actionTypes';
 
-export const increment = () => ({
-  type: INCREMENT
+export const setProfile = (profile) => ({
+  type: SET_PROFILE,
+  payload: profile,
 });
 
-export const decrement = () => ({
-  type: DECREMENT
-});
-
-export const setValue = (value) => ({
-  type: SET_VALUE,
-  payload: Number(value) || 0,
+export const setToken = (token) => ({
+  type: SET_TOKEN,
+  payload: token,
 });

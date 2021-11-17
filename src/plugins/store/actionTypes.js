@@ -1,3 +1,2 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const SET_VALUE = 'SET_VALUE';
+export const SET_TOKEN = 'SET_TOKEN';
+export const SET_PROFILE = 'SET_PROFILE';

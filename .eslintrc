@@ -1,0 +1,33 @@
+{
+  "extends": ["airbnb", "airbnb/hooks"],
+  "rules": {
+    "indent": ["warn", 2],
+    "object-curly-newline": 1,
+    "semi": "warn",
+    "arrow-body-style": 0,
+    "comma-dangle": "warn",
+    "jsx-a11y/label-has-associated-control": 0,
+    "arrow-parens": 0,
+    "no-param-reassign": "warn",
+    "default-param-last": 0,
+    "eol-last": 0,
+    "no-extra-semi": "warn",
+    "no-shadow":0,
+    "padded-blocks": 0,
+    "jsx-quotes": 0,
+    "react/function-component-definition": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-closing-tag-location": 0,
+    "react/prop-types": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-multiple-empty-lines": 1,
+    "prefer-destructuring": 0,
+    "import/extensions": 0,
+    "no-trailing-spaces": 1,
+    "linebreak-style": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true
+    }
+}
