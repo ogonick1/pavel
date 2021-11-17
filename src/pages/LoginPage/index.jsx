@@ -4,6 +4,7 @@ import {
 } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import AuthService from '../../services/authService';
 import { setToken, setProfile } from '../../plugins/store/actions';
 import './index.css';
@@ -18,6 +19,7 @@ const LoginPage = (props) => {
     setToken,
     setProfile,
   } = props;
+  const { t } = useTranslation();
   const onSubmit = async (values) => {
     try {
       const result = await AuthService.login(values);
@@ -31,10 +33,10 @@ const LoginPage = (props) => {
   };
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Неправильный email адрес')
-      .required('Обязательное поле!'),
+      .email(t('validation-errors.email'))
+      .required(t('validation-errors.required')),
     password: Yup.string()
-      .required('Обязательное поле!'),
+      .required(t('validation-errors.required')),
   });
 
   return (
@@ -45,22 +47,24 @@ const LoginPage = (props) => {
     >
 
       <Form className='form'>
-        <h2> Sing-In </h2>
-        <label htmlFor="email">Email</label>
+        <h2>
+          {t('login-page.title')}
+        </h2>
+        <label htmlFor="email">{t('form.email')}</label>
         <Field
           id="email"
           name="email"
           type="email"
         />
         <ErrorMessage component="div" className="error" name="email" />
-        <label htmlFor="text">Password</label>
+        <label htmlFor="text">{t('form.password')}</label>
         <Field
           id="password"
           name="password"
           type="text"
         />
         <ErrorMessage component="div" className="error" name="password" />
-        <button type="submit">Sing-In</button>
+        <button type="submit">{t('login-page.title')}</button>
       </Form>
     </Formik>
   );

@@ -3,12 +3,8 @@ import { useTranslation } from 'react-i18next';
 import AuthService from '../../services/authService';
 import './index.css';
 
-const lngs = {
-  en: { nativeName: 'English' },
-  ru: { nativeName: 'Rus' },
-};
 const ProfilePage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [profile, setProfile] = useState(null);
   const getProfile = async () => {
     const result = await AuthService.getProfile();
@@ -21,15 +17,8 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <div>
-        {Object.keys(lngs).map((lng) => (
-          <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(lng)}>
-            {lngs[lng].nativeName}
-          </button>
-        ))}
-      </div>
       <span>
-        {t('ProfilePage.ProfilePage')}
+        {t('profile-page.title')}
       </span>
       {profile
         ? <div>

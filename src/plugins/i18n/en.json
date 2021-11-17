@@ -1,8 +1,27 @@
-{
-    "ProfilePage": {
-      "ProfilePage": "ProfilePage"
+{   
+    "profile-page": {
+      "title": "Profile Page"
     },
-    "LoginPage": {
-        "Sing-In": "Sing-In"
+    "login-page": {
+        "title": "Sing-In"
+    },
+    "registration": {
+        "title": "Registration"
+    },
+    "validation-errors":{
+        "email": "Invalid email",
+        "required": "required field",
+        "min": "min 3 latters",
+        "max": "max 16 latters",
+        "minpas": "min 4 latters",
+        "maxpas": "max 10 latters",
+        "repeatpas": "password do not match"
+    },
+    "form":{
+        "email": "Email",
+        "password": "Password",
+        "repeat-pas": "Repeat password",
+        "first-name": "First Name",
+        "last-name": "Last Name"
     }
   }

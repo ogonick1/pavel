@@ -3,6 +3,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import './index.css';
 
 const initialValues = {
@@ -14,26 +15,27 @@ const initialValues = {
 };
 
 const RegistrationPage = () => {
+  const { t } = useTranslation();
   const onSubmit = values => console.log(JSON.stringify(values, null, 2));
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Неправильный email адрес')
-      .required('Обязательное поле!'),
+      .email(t('validation-errors.email'))
+      .required(t('validation-errors.required')),
     first_name: Yup.string()
-      .required('обязательное поле!')
-      .min(3, 'минимум три символа')
-      .max(16, 'максимум 16 символов'),
+      .required(t('validation-errors.required'))
+      .min(3, t('validation-errors.min'))
+      .max(16, t('validation-errors.max')),
     last_name: Yup.string()
-      .required('Обязательное поле!')
-      .min(3, 'минимум 3 символа')
-      .max(16, 'максимум 16 символов'),
+      .required(t('validation-errors.required'))
+      .min(3, t('validation-errors.min'))
+      .max(16, t('validation-errors.max')),
     password: Yup.string()
-      .required('Обязательное поле!')
-      .min(4, 'минимум 4 символа')
-      .max(10, 'максимум 10 символов'),
+      .required(t('validation-errors.required'))
+      .min(4, t('validation-errors.minpas'))
+      .max(10, t('validation-errors.maxpas')),
     repeat_password: Yup.string()
-      .required('Обязательное поле!')
-      .oneOf([Yup.ref('password')], 'Пароли не совпадают'),
+      .required(t('validation-errors.required'))
+      .oneOf([Yup.ref('password')], t('validation-errors.repeatpas')),
   });
 
   return (
@@ -43,43 +45,45 @@ const RegistrationPage = () => {
       onSubmit={onSubmit}
     >
       <Form className='form'>
-        <h2> Registration </h2>
-        <label htmlFor="email">Email</label>
+        <h2>
+          {t('registration.title')}
+        </h2>
+        <label htmlFor="email">{t('form.email')}</label>
         <Field
           id="email"
           name="email"
           type="email"
         />
         <ErrorMessage component="div" className="error" name="email" />
-        <label htmlFor="first_name">First Name</label>
+        <label htmlFor="first_name">{t('form.first-name')}</label>
         <Field
           id="first_name"
           name="first_name"
           type="text"
         />
         <ErrorMessage component="div" className="error" name="first_name" />
-        <label htmlFor="last_name">last Name</label>
+        <label htmlFor="last_name">{t('form.last-name')}</label>
         <Field
           id="last_name"
           name="last_name"
           type="text"
         />
         <ErrorMessage component="div" className="error" name="last_name" />
-        <label htmlFor="text">Password</label>
+        <label htmlFor="text">{t('form.password')}</label>
         <Field
           id="password"
           name="password"
           type="text"
         />
         <ErrorMessage component="div" className="error" name="password" />
-        <label htmlFor="text">Repeat password</label>
+        <label htmlFor="text">{t('form.repeat-pas')}</label>
         <Field
           id="repeat_password"
           name="repeat_password"
           type="text"
         />
         <ErrorMessage component="div" className="error" name="repeat_password" />
-        <button type="submit">Registration</button>
+        <button type="submit">{t('registration.title')}</button>
       </Form>
     </Formik>
   );
