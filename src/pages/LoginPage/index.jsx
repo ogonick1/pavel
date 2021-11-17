@@ -5,8 +5,10 @@ import {
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import Button from '../../components/Button';
 import AuthService from '../../services/authService';
 import { setToken, setProfile } from '../../plugins/store/actions';
+
 import './index.scss';
 
 const initialValues = {
@@ -64,7 +66,10 @@ const LoginPage = (props) => {
           type="text"
         />
         <ErrorMessage component="div" className="error" name="password" />
-        <button type="submit">{t('login-page.title')}</button>
+        <Button
+          text={t('login-page.title')}
+          isSubmit
+        />
       </Form>
     </Formik>
   );
