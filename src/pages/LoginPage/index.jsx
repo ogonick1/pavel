@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import AuthService from '../../services/authService';
 import { setToken, setProfile } from '../../plugins/store/actions';
-import './index.css';
+import './index.scss';
 
 const initialValues = {
   email: '',

@@ -1,13 +1,16 @@
+@import "../../global/styles/variables";
+
 form {
     margin: 0 auto;
     padding: 35px;
     width: 700px;
     min-height: 500px;
-    background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 9px 23px 0 rgb(0 0 0 / 3%);
+    box-shadow: 0 9px 23px 0 #eee;
+    background-color: #000;
     }
     h2 {
+        color: $yellow;
         text-align: center;
         font-size: 28px;
         text-transform: uppercase;
@@ -23,7 +26,7 @@ form {
         height: 50px;
         margin-top: 15px;
         padding: 5px 15px;
-        background: #fff;
+        background: $white;
         border: 1px solid #e2e2e2;
         color: #353535;
         border-radius: 10px;
