@@ -10,6 +10,7 @@ const Button = (props) => {
 
   return (
     <button
+      className='btn-submit'
       onClick={onClick}
       type={isSubmit ? 'submit' : 'button'}
     >

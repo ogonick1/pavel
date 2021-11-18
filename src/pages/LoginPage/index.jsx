@@ -1,11 +1,13 @@
 import React from 'react';
 import {
-  Formik, Form, Field, ErrorMessage,
+  Formik, Form,
 } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
+import FieldInput from '../../components/FieldInput';
 import AuthService from '../../services/authService';
 import { setToken, setProfile } from '../../plugins/store/actions';
 
@@ -49,27 +51,30 @@ const LoginPage = (props) => {
     >
 
       <Form className='form'>
-        <h2>
+        <h2 className='login'>
           {t('login-page.title')}
         </h2>
-        <label htmlFor="email">{t('form.email')}</label>
-        <Field
+        <FieldInput name='email' text={t('form.email')} type='email' />
+        <FieldInput name='password' text={t('form.password')} type='text' />
+        {/* <label htmlFor="email">{t('form.email')}</label> */}
+        {/* <Field
           id="email"
           name="email"
           type="email"
-        />
-        <ErrorMessage component="div" className="error" name="email" />
-        <label htmlFor="text">{t('form.password')}</label>
+        /> */}
+        {/* <ErrorMessage component="div" className="error" name="email" /> */}
+        {/* <label htmlFor="text">{t('form.password')}</label>
         <Field
           id="password"
           name="password"
           type="text"
         />
-        <ErrorMessage component="div" className="error" name="password" />
+        <ErrorMessage component="div" className="error" name="password" /> */}
         <Button
           text={t('login-page.title')}
           isSubmit
         />
+        <Link className='link' to="/registration">{t('registration.title')}</Link>
       </Form>
     </Formik>
   );

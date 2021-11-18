@@ -1,10 +1,12 @@
 import React from 'react';
 import {
-  Formik, Form, Field, ErrorMessage,
+  Formik, Form,
 } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import './index.css';
+import { Link } from 'react-router-dom';
+import './index.scss';
+import FieldInput from '../../components/FieldInput';
 
 const initialValues = {
   email: '',
@@ -16,6 +18,7 @@ const initialValues = {
 
 const RegistrationPage = () => {
   const { t } = useTranslation();
+  // eslint-disable-next-line no-console
   const onSubmit = values => console.log(JSON.stringify(values, null, 2));
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -45,17 +48,15 @@ const RegistrationPage = () => {
       onSubmit={onSubmit}
     >
       <Form className='form'>
-        <h2>
+        <h2 className='login'>
           {t('registration.title')}
         </h2>
-        <label htmlFor="email">{t('form.email')}</label>
-        <Field
-          id="email"
-          name="email"
-          type="email"
-        />
-        <ErrorMessage component="div" className="error" name="email" />
-        <label htmlFor="first_name">{t('form.first-name')}</label>
+        <FieldInput name='email' text={t('form.email')} type='email' />
+        <FieldInput name='first_name' text={t('form.first-name')} type='text' />
+        <FieldInput name='last_name' text={t('form.last-name')} type='text' />
+        <FieldInput name='password' text={t('form.password')} type='text' />
+        <FieldInput name='repeat-password' text={t('form.repeat-pas')} type='text' />
+        {/* <label htmlFor="first_name">{t('form.first-name')}</label>
         <Field
           id="first_name"
           name="first_name"
@@ -68,8 +69,8 @@ const RegistrationPage = () => {
           name="last_name"
           type="text"
         />
-        <ErrorMessage component="div" className="error" name="last_name" />
-        <label htmlFor="text">{t('form.password')}</label>
+        <ErrorMessage component="div" className="error" name="last_name" /> */}
+        {/* <label htmlFor="text">{t('form.password')}</label>
         <Field
           id="password"
           name="password"
@@ -82,8 +83,9 @@ const RegistrationPage = () => {
           name="repeat_password"
           type="text"
         />
-        <ErrorMessage component="div" className="error" name="repeat_password" />
-        <button type="submit">{t('registration.title')}</button>
+        <ErrorMessage component="div" className="error" name="repeat_password" /> */}
+        <button className='btn-submit' type="submit">{t('registration.title')}</button>
+        <Link className='link' to="/login">{t('login-page.title')}</Link>
       </Form>
     </Formik>
   );

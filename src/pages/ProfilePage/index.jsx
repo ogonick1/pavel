@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthService from '../../services/authService';
-import './index.css';
+import './index.scss';
 
 const ProfilePage = () => {
   const { t } = useTranslation();
@@ -16,19 +16,19 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <div>
-      <span>
+    <div className='profile-page'>
+      <div className='title'>
         {t('profile-page.title')}
-      </span>
+      </div>
       {profile
         ? <div>
-          <div>
+          <div className='info'>
             {profile.email}
           </div>
-          <div>
+          <div className='info'>
             {profile.firstName}
           </div>
-          <div>
+          <div className='info'>
             {profile.lastName}
           </div>
         </div>
