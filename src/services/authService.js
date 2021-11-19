@@ -10,6 +10,7 @@ export default class AuthService {
   }
 
   static registration() {
+    // TODO написать сервис для регистрации как в логине
     //
   }
 }

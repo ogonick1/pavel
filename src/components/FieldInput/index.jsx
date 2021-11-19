@@ -11,14 +11,23 @@ const FieldInput = (props) => {
 
   return (
     <>
-      <label className='text' htmlFor={name}>{text}</label>
+      <label
+        className='text'
+        htmlFor={name}
+      >
+        {text}
+      </label>
       <Field
         className='input'
         id={name}
         name={name}
         type={type}
       />
-      <ErrorMessage component="div" className="error" name={name} />
+      <ErrorMessage
+        component="div"
+        className="error"
+        name={name}
+      />
     </>
   );
 };

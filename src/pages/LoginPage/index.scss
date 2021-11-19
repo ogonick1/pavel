@@ -7,6 +7,7 @@
   min-height: 300px;
   border-radius: 15px;
   background-color: $yellow;
+  // TODO
   border: 2px solid gray;
 }
 
@@ -19,9 +20,12 @@
 }
 
 .link {
+  // TODO remove db
   display: block;
+  // TODO
   margin-top: -30px;
   color: $black;
-  text-align: right;
+  // TODO
+  // text-align: right;
   font-size: 28px;
 }

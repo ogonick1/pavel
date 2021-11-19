@@ -6,6 +6,7 @@ import './index.scss';
 const ProfilePage = () => {
   const { t } = useTranslation();
   const [profile, setProfile] = useState(null);
+
   const getProfile = async () => {
     const result = await AuthService.getProfile();
     setProfile(result);
@@ -17,6 +18,7 @@ const ProfilePage = () => {
 
   return (
     <div className='profile-page'>
+      {/* //TODO replace to PageTitle component */}
       <div className='title'>
         {t('profile-page.title')}
       </div>

@@ -1,27 +1,26 @@
 {
-    "profile-page": {
-      "title": "Главная страница"
-    },
-    "login-page": {
-        "title": "Авторизация"
-    },
-    "registration": {
-        "title": "Зарегистрироватся"
-    },
-    "validation-errors":{
-        "email": "Неправильный email адрес",
-        "required": "Обязательное поле",
-        "min": "Минимум 3 символа",
-        "max": "Не больше 16 символов",
-        "minpas": "Минимум 4 символа",
-        "maxpas": "Не больше 10 символов",
-        "repeatpas": "Пароли не совпадают"
-    },
-    "form":{
-        "email": "Введите Ваш емейл",
-        "password": "Введите пароль",
-        "repeat-pas": "Повторите пароль",
-        "first-name": "Ведите Ваше имя",
-        "last-name": "Введите вашу фамилию"
-    }
-  }
+	"profile-page": {
+		"title": "Главная страница"
+	},
+	"login-page": {
+		"title": "Авторизация"
+	},
+	"registration": {
+		"title": "Зарегистрироватся"
+	},
+	// TODO to camelCase
+	"validation-errors": {
+		"email": "Неправильный email адрес",
+		"required": "Обязательное поле",
+		"minLength": "Минимум {{min}} символа",
+		"minMaxLength": "Length must be between {{min}} and {{max}} symbols.",
+		"repeatPassword": "Пароли не совпадают"
+	},
+	"form": {
+		"email": "Введите Ваш емейл",
+		"password": "Введите пароль",
+		"repeat-pas": "Повторите пароль",
+		"first-name": "Ведите Ваше имя",
+		"last-name": "Введите вашу фамилию"
+	}
+}

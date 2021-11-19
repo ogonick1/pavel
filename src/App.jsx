@@ -12,6 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      {/* TODO remove div */}
       <div>
         <Routes>
           <Route

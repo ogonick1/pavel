@@ -5,6 +5,7 @@ import App from './App.jsx';
 import store from './plugins/store';
 import './plugins/i18n/index';
 import axiosSetup from './plugins/axiosSetup';
+// TODO подеючить глобал scss
 
 axiosSetup();
 

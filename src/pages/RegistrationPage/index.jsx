@@ -5,13 +5,14 @@ import {
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import './index.scss';
 import FieldInput from '../../components/FieldInput';
+import './index.scss';
 
 const initialValues = {
   email: '',
-  first_name: '',
-  last_name: '',
+  // TODO
+  firstName: '',
+  lastName: '',
   password: '',
   repeat_password: '',
 };
@@ -26,7 +27,7 @@ const RegistrationPage = () => {
       .required(t('validation-errors.required')),
     first_name: Yup.string()
       .required(t('validation-errors.required'))
-      .min(3, t('validation-errors.min'))
+      .min(3, t('validation-errors.minMaxLength', { min: 3, max: 16 }))
       .max(16, t('validation-errors.max')),
     last_name: Yup.string()
       .required(t('validation-errors.required'))
@@ -38,7 +39,7 @@ const RegistrationPage = () => {
       .max(10, t('validation-errors.maxpas')),
     repeat_password: Yup.string()
       .required(t('validation-errors.required'))
-      .oneOf([Yup.ref('password')], t('validation-errors.repeatpas')),
+      .oneOf([Yup.ref('password')], t('validationErrors.repeatpas')),
   });
 
   return (
@@ -48,6 +49,7 @@ const RegistrationPage = () => {
       onSubmit={onSubmit}
     >
       <Form className='form'>
+        {/* replace to PageTitle component */}
         <h2 className='login'>
           {t('registration.title')}
         </h2>
@@ -56,6 +58,7 @@ const RegistrationPage = () => {
         <FieldInput name='last_name' text={t('form.last-name')} type='text' />
         <FieldInput name='password' text={t('form.password')} type='text' />
         <FieldInput name='repeat-password' text={t('form.repeat-pas')} type='text' />
+        {/* TODO remove comments */}
         {/* <label htmlFor="first_name">{t('form.first-name')}</label>
         <Field
           id="first_name"
@@ -84,7 +87,13 @@ const RegistrationPage = () => {
           type="text"
         />
         <ErrorMessage component="div" className="error" name="repeat_password" /> */}
-        <button className='btn-submit' type="submit">{t('registration.title')}</button>
+        {/* TODO use Button component */}
+        <button
+          className='button'
+          type="submit"
+        >
+          {t('registration.title')}
+        </button>
         <Link className='link' to="/login">{t('login-page.title')}</Link>
       </Form>
     </Formik>

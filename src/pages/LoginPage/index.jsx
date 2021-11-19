@@ -23,7 +23,9 @@ const LoginPage = (props) => {
     setToken,
     setProfile,
   } = props;
+
   const { t } = useTranslation();
+
   const onSubmit = async (values) => {
     try {
       const result = await AuthService.login(values);
@@ -35,6 +37,7 @@ const LoginPage = (props) => {
       console.log(error);
     }
   };
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email(t('validation-errors.email'))
@@ -49,13 +52,14 @@ const LoginPage = (props) => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-
+      {/* // TODO */}
       <Form className='form'>
         <h2 className='login'>
           {t('login-page.title')}
         </h2>
         <FieldInput name='email' text={t('form.email')} type='email' />
         <FieldInput name='password' text={t('form.password')} type='text' />
+        {/* // TODO/ REMOVE comments */}
         {/* <label htmlFor="email">{t('form.email')}</label> */}
         {/* <Field
           id="email"
@@ -74,7 +78,12 @@ const LoginPage = (props) => {
           text={t('login-page.title')}
           isSubmit
         />
-        <Link className='link' to="/registration">{t('registration.title')}</Link>
+        <Link
+          className='link'
+          to="/registration"
+        >
+          {t('registration.title')}
+        </Link>
       </Form>
     </Formik>
   );
