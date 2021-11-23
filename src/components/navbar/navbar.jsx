@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 import './navbar.scss';
 
@@ -15,15 +16,15 @@ const Navbar = () => {
   const navLinks = [
     {
       to: '/',
-      title: 'navBar.links.profilePage',
+      title: 'profilePage.title',
     },
     {
       to: '/registration',
-      title: 'navBar.links.registrationPage',
+      title: 'registration.title',
     },
     {
       to: '/login',
-      title: 'navBar.links.loginPage',
+      title: 'loginPage.title',
     },
   ];
 
@@ -31,20 +32,16 @@ const Navbar = () => {
     <nav>
       <ul className='menu'>
         {navLinks.map((link) => {
-          return <li className='menu-item'><Link to={link.to}>{link.title}</Link></li>;
+          return <li className='menu-item'><Link to={link.to}>{t(link.title)}</Link></li>;
         })}
-        <li className='menu-item'>
-          {Object.keys(lngs).map((lng) => (
-            <button
-              key={lng}
-              className={i18n.resolvedLanguage === lng ? 'nav-bar__link--active menu-item navbtn' : 'menu-item navbtn'}
-              type="submit"
-              onClick={() => i18n.changeLanguage(lng)}
-            >
-              {lngs[lng].nativeName}
-            </button>
-          ))}
-        </li>
+        {Object.keys(lngs).map((lng) => (
+          <Button
+            onClick={() => i18n.changeLanguage(lng)}
+            isSubmit
+            text={lngs[lng].nativeName}
+            className={i18n.resolvedLanguage === lng ? 'nav-bar__link-active menu-item navbtn' : 'menu-item navbtn'}
+          />
+        ))}
       </ul>
     </nav>
   );

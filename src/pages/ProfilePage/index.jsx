@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthService from '../../services/authService';
+import PageTitle from '../../components/pageTitle';
+
 import './index.scss';
 
 const ProfilePage = () => {
@@ -18,10 +20,7 @@ const ProfilePage = () => {
 
   return (
     <div className='profile-page'>
-      {/* //TODO replace to PageTitle component */}
-      <div className='title'>
-        {t('profile-page.title')}
-      </div>
+      <PageTitle text={t('profilePage.title')} />
       {profile
         ? <div>
           <div className='info'>

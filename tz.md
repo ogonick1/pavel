@@ -85,3 +85,9 @@
 
 
 
+camelCase 
+input
+serfice put i kluchi drugi
+crasnoe soobshenie vuvodit
+try cathc v cath functi ob oshibke
+(error namapit(preobrazovatiy))

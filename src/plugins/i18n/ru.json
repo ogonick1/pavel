@@ -1,26 +1,29 @@
 {
-	"profile-page": {
+	"profilePage": {
 		"title": "Главная страница"
 	},
-	"login-page": {
+	"loginPage": {
 		"title": "Авторизация"
 	},
 	"registration": {
 		"title": "Зарегистрироватся"
 	},
-	// TODO to camelCase
-	"validation-errors": {
+	"validationErrors": {
 		"email": "Неправильный email адрес",
 		"required": "Обязательное поле",
 		"minLength": "Минимум {{min}} символа",
-		"minMaxLength": "Length must be between {{min}} and {{max}} symbols.",
+		"minMaxLength": "Длинна должна быть от {{min}} до {{max}} символов.",
 		"repeatPassword": "Пароли не совпадают"
 	},
 	"form": {
 		"email": "Введите Ваш емейл",
 		"password": "Введите пароль",
-		"repeat-pas": "Повторите пароль",
-		"first-name": "Ведите Ваше имя",
-		"last-name": "Введите вашу фамилию"
+		"repeatPassword": "Повторите пароль",
+		"firstName": "Ведите Ваше имя",
+		"lastName": "Введите вашу фамилию"
+	},
+	"languages": {
+		"en": "Английский",
+		"ru": "Русский"
 	}
 }

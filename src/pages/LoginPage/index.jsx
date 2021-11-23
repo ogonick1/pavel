@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Formik, Form,
-} from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -40,10 +38,10 @@ const LoginPage = (props) => {
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email(t('validation-errors.email'))
-      .required(t('validation-errors.required')),
+      .email(t('validationErrors.email'))
+      .required(t('validationErrors.required')),
     password: Yup.string()
-      .required(t('validation-errors.required')),
+      .required(t('validationErrors.required')),
   });
 
   return (
@@ -52,30 +50,15 @@ const LoginPage = (props) => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {/* // TODO */}
+      {/* // TODO лабел вынести */}
       <Form className='form'>
         <h2 className='login'>
-          {t('login-page.title')}
+          {t('loginPage.title')}
         </h2>
         <FieldInput name='email' text={t('form.email')} type='email' />
         <FieldInput name='password' text={t('form.password')} type='text' />
-        {/* // TODO/ REMOVE comments */}
-        {/* <label htmlFor="email">{t('form.email')}</label> */}
-        {/* <Field
-          id="email"
-          name="email"
-          type="email"
-        /> */}
-        {/* <ErrorMessage component="div" className="error" name="email" /> */}
-        {/* <label htmlFor="text">{t('form.password')}</label>
-        <Field
-          id="password"
-          name="password"
-          type="text"
-        />
-        <ErrorMessage component="div" className="error" name="password" /> */}
         <Button
-          text={t('login-page.title')}
+          text={t('loginPage.title')}
           isSubmit
         />
         <Link
