@@ -24,7 +24,8 @@
     "prefer-destructuring": 0,
     "import/extensions": 0,
     "no-trailing-spaces": 1,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "no-unused-vars": 0
   },
   "env": {
     "browser": true,
