@@ -3,6 +3,7 @@ import './index.scss';
 
 const Button = (props) => {
   const {
+    className,
     onClick,
     text,
     isSubmit = false,
@@ -10,7 +11,7 @@ const Button = (props) => {
 
   return (
     <button
-      className='btn-submit'
+      className={className}
       onClick={onClick}
       type={isSubmit ? 'submit' : 'button'}
     >

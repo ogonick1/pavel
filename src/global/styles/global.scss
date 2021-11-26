@@ -1,6 +1,7 @@
+@import './variables';
+
 body {
-  // TODO
-  background: rgb(53, 48, 48);
+  background: $gradientbg;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

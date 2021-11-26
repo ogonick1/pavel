@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Button from '../Button';
+import logo from './4.png';
 
 import './navbar.scss';
 
@@ -31,17 +32,20 @@ const Navbar = () => {
   return (
     <nav>
       <ul className='menu'>
+        <img className='headcow' src={logo} alt="cow" />
         {navLinks.map((link) => {
-          return <li className='menu-item'><Link to={link.to}>{t(link.title)}</Link></li>;
+          return <li className='menu-item'><NavLink activeClassName="select" to={link.to}>{t(link.title)}</NavLink></li>;
         })}
-        {Object.keys(lngs).map((lng) => (
-          <Button
-            onClick={() => i18n.changeLanguage(lng)}
-            isSubmit
-            text={lngs[lng].nativeName}
-            className={i18n.resolvedLanguage === lng ? 'nav-bar__link-active menu-item navbtn' : 'menu-item navbtn'}
-          />
-        ))}
+        <div className='btnlng'>
+          {Object.keys(lngs).map((lng) => (
+            <Button
+              className={i18n.resolvedLanguage === lng ? 'btn active' : 'btn'}
+              onClick={() => i18n.changeLanguage(lng)}
+              isSubmit
+              text={lngs[lng].nativeName}
+            />
+          ))}
+        </div>
       </ul>
     </nav>
   );

@@ -1,10 +1,18 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
+import AuthService from '../../services/authService';
+import {
+  setEmail,
+  setFirstName,
+  setLastName,
+  setPassword,
+} from '../../plugins/store/actions';
 import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
@@ -17,10 +25,33 @@ const initialValues = {
   repeatPassword: '',
 };
 
-const RegistrationPage = () => {
+const RegistrationPage = (props) => {
+  const {
+    setEmail,
+    setFirstName,
+    setLastName,
+    setPassword,
+  } = props;
+
+  const onSubmit = async (values) => {
+    try {
+      const result = await AuthService.registration(values);
+      setEmail(result.email);
+      setFirstName(result.firstName);
+      setLastName(result.lastName);
+      setPassword(result.password);
+      // eslint-disable-next-line no-console
+      console.log(JSON.stringify(values, null, 2));
+
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
+  };
+
   const { t } = useTranslation();
   // eslint-disable-next-line no-console
-  const onSubmit = values => console.log(JSON.stringify(values, null, 2));
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email(t('validationErrors.email'))
@@ -65,4 +96,13 @@ const RegistrationPage = () => {
   );
 };
 
-export default RegistrationPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setEmail: (email) => dispatch(setEmail(email)),
+    setFirstName: (firstName) => dispatch(setFirstName(firstName)),
+    setLastName: (lastName) => dispatch(setLastName(lastName)),
+    setPassword: (password) => dispatch(setPassword(password)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(RegistrationPage);

@@ -4,10 +4,13 @@ import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
 import AuthService from '../../services/authService';
 import { setToken, setProfile } from '../../plugins/store/actions';
+import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
 
@@ -17,6 +20,8 @@ const initialValues = {
 };
 
 const LoginPage = (props) => {
+  const notify = (text) => toast(text);
+
   const {
     setToken,
     setProfile,
@@ -31,6 +36,7 @@ const LoginPage = (props) => {
       setProfile(result.user);
 
     } catch (error) {
+      notify('error mesage');
       // eslint-disable-next-line no-console
       console.log(error);
     }
@@ -52,15 +58,14 @@ const LoginPage = (props) => {
     >
       {/* // TODO лабел вынести */}
       <Form className='form'>
-        <h2 className='login'>
-          {t('loginPage.title')}
-        </h2>
+        <PageTitle text={t('loginPage.title')} />
         <FieldInput name='email' text={t('form.email')} type='email' />
         <FieldInput name='password' text={t('form.password')} type='text' />
         <Button
           text={t('loginPage.title')}
           isSubmit
         />
+        <ToastContainer />
         <Link
           className='link'
           to="/registration"

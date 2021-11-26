@@ -2,14 +2,13 @@
 
 .text {
   text-align: center;
-  display: block;
   margin-top: 25px;
   font-size: 25px;
   font-weight: bold;
 }
 
 .error {
-  color: #e53e3e;
+  color: $error;
   margin-top: 8px;
 }
 
@@ -19,9 +18,8 @@
   height: 50px;
   margin-top: 15px;
   padding: 5px 15px;
-  background: #fff;
+  background: $white;
   border: 1px solid #e2e2e2;
-  color: #353535;
   border-radius: 10px;
   font-size: 22px;
 }
