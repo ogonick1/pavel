@@ -50,28 +50,13 @@ const ProfilePage = () => {
   return (
     <div className='profile-page'>
       <PageTitle text={t('profilePage.title')} />
-      {profile
-        ? <div>
-          <div className='info'>
-            {t('form.email')}
-            {profile.email}
-          </div>
-          <div className='info'>
-            {t('form.firstName')}
-            {profile.firstName}
-          </div>
-          <div className='info'>
-            {t('form.lastName')}
-            {profile.lastName}
-          </div>
-          <div className='info'>
-            {t('form.registered')}
-            {dayjs(profile.createdAt).format('DD.MM.YYYY HH:mm')}
-          </div>
-        </div>
-        : null}
+      {profileDetails.map((profileDetails) => {
+        return <div className="info">
+          {profileDetails.label}
+          {profileDetails.value}
+        </div>;
+      })}
     </div>
   );
 };
-
 export default ProfilePage;
