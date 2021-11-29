@@ -8,17 +8,16 @@
 }
 
 .error {
+  margin-left: 20px;
   color: $error;
-  margin-top: 8px;
+  font-size:15px;
 }
 
 .input {
-  text-align: center;
-  width: 95%;
+  width: 90%;
   height: 50px;
-  margin-top: 15px;
-  padding: 5px 15px;
-  background: $white;
+  margin: 10px;
+  background: $grey;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
   font-size: 22px;

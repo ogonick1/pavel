@@ -11,7 +11,5 @@ export default class AuthService {
 
   static registration(model) {
     return axios.post('/registration', model);
-    // TODO написать сервис для регистрации как в логине
-    //
   }
 }

@@ -34,7 +34,7 @@ const Navbar = () => {
       <ul className='menu'>
         <img className='headcow' src={logo} alt="cow" />
         {navLinks.map((link) => {
-          return <li className='menu-item'><NavLink activeClassName="select" to={link.to}>{t(link.title)}</NavLink></li>;
+          return <li className='menu-item'><NavLink activeclassname="select" to={link.to}>{t(link.title)}</NavLink></li>;
         })}
         <div className='btnlng'>
           {Object.keys(lngs).map((lng) => (

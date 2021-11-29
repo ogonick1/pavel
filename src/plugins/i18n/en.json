@@ -1,28 +1,29 @@
 {
-	"profilePage": {
-		"title": "Profile Page"
-	},
-	"loginPage": {
-		"title": "Sing-In"
-	},
-	"registration": {
-		"title": "Registration"
-	},
-	"validationErrors": {
-		"email": "Invalid email",
-		"required": "required field",
-		"minMaxLength": "Length must be between {{min}} and {{max}} symbols.",
-		"repeatPassword": "password do not match"
-	},
-	"form": {
-		"email": "Email",
-		"password": "Password",
-		"repeatPassword": "Repeat password",
-		"firstName": "First Name",
-		"lastName": "Last Name"
-	},
-	"languages": {
-		"en": "English",
-		"ru": "Russian"
-	}
+  "profilePage": {
+    "title": "Profile Page"
+  },
+  "loginPage": {
+    "title": "Sing-In"
+  },
+  "registration": {
+    "title": "Registration"
+  },
+  "validationErrors": {
+    "email": "Invalid email",
+    "required": "required field",
+    "minMaxLength": "Length must be between {{min}} and {{max}} symbols.",
+    "repeatPassword": "password do not match"
+  },
+  "form": {
+    "email": "Email: ",
+    "password": "Password: ",
+    "repeatPassword": "Repeat password: ",
+    "firstName": "First Name: ",
+    "lastName": "Last Name: ",
+    "registered": "Registered at: "
+  },
+  "languages": {
+    "en": "English",
+    "ru": "Russian"
+  }
 }

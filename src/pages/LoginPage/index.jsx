@@ -1,11 +1,14 @@
-import React from 'react';
+import {
+  React,
+  useRef,
+  useEffect,
+} from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
 import AuthService from '../../services/authService';
@@ -13,6 +16,7 @@ import { setToken, setProfile } from '../../plugins/store/actions';
 import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialValues = {
   email: '',
@@ -20,12 +24,17 @@ const initialValues = {
 };
 
 const LoginPage = (props) => {
-  const notify = (text) => toast(text);
 
   const {
     setToken,
     setProfile,
   } = props;
+
+  const myRef = useRef(null);
+
+  useEffect(() => {
+    myRef.current.focus();
+  }, []);
 
   const { t } = useTranslation();
 
@@ -36,7 +45,8 @@ const LoginPage = (props) => {
       setProfile(result.user);
 
     } catch (error) {
-      notify('error mesage');
+      toast.error(error.data.message);
+      toast.error(error.statusText);
       // eslint-disable-next-line no-console
       console.log(error);
     }
@@ -56,22 +66,25 @@ const LoginPage = (props) => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {/* // TODO лабел вынести */}
       <Form className='form'>
+        <input type="text" ref={myRef} />
         <PageTitle text={t('loginPage.title')} />
         <FieldInput name='email' text={t('form.email')} type='email' />
         <FieldInput name='password' text={t('form.password')} type='text' />
-        <Button
-          text={t('loginPage.title')}
-          isSubmit
-        />
+        <div>
+          <Button
+            className='btnsumbit'
+            text={t('loginPage.title')}
+            isSubmit
+          />
+          <Link
+            className='link'
+            to="/registration"
+          >
+            {t('registration.title')}
+          </Link>
+        </div>
         <ToastContainer />
-        <Link
-          className='link'
-          to="/registration"
-        >
-          {t('registration.title')}
-        </Link>
       </Form>
     </Formik>
   );

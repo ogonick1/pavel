@@ -16,11 +16,12 @@
 		"repeatPassword": "Пароли не совпадают"
 	},
 	"form": {
-		"email": "Введите Ваш емейл",
-		"password": "Введите пароль",
-		"repeatPassword": "Повторите пароль",
-		"firstName": "Ведите Ваше имя",
-		"lastName": "Введите вашу фамилию"
+		"email": "Ваш емейл: ",
+		"password": "Введите пароль: ",
+		"repeatPassword": "Повторите пароль: ",
+		"firstName": "Ваше имя: ",
+		"lastName": "Ваша фамилия: ",
+		"registered": "Зарегестрированы: "
 	},
 	"languages": {
 		"en": "Английский",

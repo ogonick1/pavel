@@ -1,6 +1,6 @@
 import axios from 'axios';
 import appConfig from '../config';
-import store from './store';
+import { store } from './store';
 
 const axiosSetup = () => {
   axios.interceptors.request.use(

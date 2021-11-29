@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
 import AuthService from '../../services/authService';
@@ -40,10 +41,10 @@ const RegistrationPage = (props) => {
       setFirstName(result.firstName);
       setLastName(result.lastName);
       setPassword(result.password);
-      // eslint-disable-next-line no-console
-      console.log(JSON.stringify(values, null, 2));
 
     } catch (error) {
+      toast.error(error.data.message);
+      toast.error(error.statusText);
       // eslint-disable-next-line no-console
       console.log(error);
     }
@@ -80,6 +81,7 @@ const RegistrationPage = (props) => {
       onSubmit={onSubmit}
     >
       <Form className='form'>
+        <ToastContainer />
         <PageTitle text={t('registration.title')} />
         <FieldInput name='email' text={t('form.email')} type='email' />
         <FieldInput name='firstName' text={t('form.firstName')} type='text' />
@@ -87,6 +89,7 @@ const RegistrationPage = (props) => {
         <FieldInput name='password' text={t('form.password')} type='text' />
         <FieldInput name='repeatPassword' text={t('form.repeatPassword')} type='text' />
         <Button
+          className='btnsumbit'
           text={t('registration.title')}
           isSubmit
         />
