@@ -24,6 +24,29 @@ const ProfilePage = () => {
     getProfile();
   }, []);
 
+  const profileDetails = profile
+    ? [
+      {
+        label: t('form.email'),
+        value: profile.email,
+      },
+      {
+        label: t('form.firstName'),
+        value: profile.firstName,
+      },
+      {
+        label: t('form.lastName'),
+        value: profile.lastName,
+      },
+      {
+        label: t('form.registered'),
+        value: profile.createdAt
+          ? dayjs(profile.createdAt).format('DD.MM.YYYY HH:mm')
+          : '',
+      },
+    ]
+    : [];
+
   return (
     <div className='profile-page'>
       <PageTitle text={t('profilePage.title')} />
