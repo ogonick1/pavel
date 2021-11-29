@@ -8,6 +8,7 @@ const FieldInput = (props) => {
     name,
     text,
     type,
+    inputRef,
   } = props;
 
   return (
@@ -19,6 +20,7 @@ const FieldInput = (props) => {
         {text}
       </label>
       <Field
+        innerRef={inputRef}
         className='input'
         id={name}
         name={name}

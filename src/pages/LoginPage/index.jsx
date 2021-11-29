@@ -30,10 +30,10 @@ const LoginPage = (props) => {
     setProfile,
   } = props;
 
-  const myRef = useRef(null);
+  const emailField = useRef(null);
 
   useEffect(() => {
-    myRef.current.focus();
+    emailField.current.focus();
   }, []);
 
   const { t } = useTranslation();
@@ -67,9 +67,13 @@ const LoginPage = (props) => {
       onSubmit={onSubmit}
     >
       <Form className='form'>
-        <input type="text" ref={myRef} />
         <PageTitle text={t('loginPage.title')} />
-        <FieldInput name='email' text={t('form.email')} type='email' />
+        <FieldInput
+          inputRef={emailField}
+          name='email'
+          text={t('form.email')}
+          type='email'
+        />
         <FieldInput name='password' text={t('form.password')} type='text' />
         <div>
           <Button
