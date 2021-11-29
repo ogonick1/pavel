@@ -5,7 +5,8 @@ import {
 } from 'react';
 import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
-import AuthService from '../../services/authService';
+import { dateTimeFormats } from '../../utils/constants';
+import AuthService from '../../services/AuthService';
 import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
@@ -41,7 +42,7 @@ const ProfilePage = () => {
       {
         label: t('form.registered'),
         value: profile.createdAt
-          ? dayjs(profile.createdAt).format('DD.MM.YYYY HH:mm')
+          ? dayjs(profile.createdAt).format(dateTimeFormats.DATE_TIME)
           : '',
       },
     ]
@@ -51,10 +52,12 @@ const ProfilePage = () => {
     <div className='profile-page'>
       <PageTitle text={t('profilePage.title')} />
       {profileDetails.map((profileDetails) => {
-        return <div className="info">
-          {profileDetails.label}
-          {profileDetails.value}
-        </div>;
+        return (
+          <div className="info">
+            {profileDetails.label}
+            {profileDetails.value}
+          </div>
+        );
       })}
     </div>
   );

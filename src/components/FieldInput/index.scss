@@ -1,24 +1,25 @@
 @import "../../global/styles/variables";
 
-.text {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 25px;
-  font-weight: bold;
-}
+.filed-input {
+  &__label {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  &__error {
+    margin-left: 20px;
+    color: $error;
+    font-size:15px;
+  }
 
-.error {
-  margin-left: 20px;
-  color: $error;
-  font-size:15px;
-}
-
-.input {
-  width: 90%;
-  height: 50px;
-  margin: 10px;
-  background: $grey;
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  font-size: 22px;
+  &__input {
+    width: 90%;
+    height: 50px;
+    margin: 10px;
+    background: $grey;
+    border: 1px solid $boarder-color;
+    border-radius: 10px;
+    font-size: 22px;
+  }
 }

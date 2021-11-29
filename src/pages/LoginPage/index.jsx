@@ -7,16 +7,15 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
-import AuthService from '../../services/authService';
+import AuthService from '../../services/AuthService';
 import { setToken, setProfile } from '../../plugins/store/actions';
 import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
-import 'react-toastify/dist/ReactToastify.css';
 
 const initialValues = {
   email: '',
@@ -24,6 +23,7 @@ const initialValues = {
 };
 
 const LoginPage = (props) => {
+  const { t } = useTranslation();
 
   const {
     setToken,
@@ -31,24 +31,22 @@ const LoginPage = (props) => {
   } = props;
 
   const emailField = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     emailField.current.focus();
   }, []);
-
-  const { t } = useTranslation();
 
   const onSubmit = async (values) => {
     try {
       const result = await AuthService.login(values);
       setToken(result.token);
       setProfile(result.user);
-
+      navigate('/');
     } catch (error) {
-      toast.error(error.data.message);
-      toast.error(error.statusText);
-      // eslint-disable-next-line no-console
-      console.log(error);
+      setToken(null);
+      setProfile(null);
+      toast.error(error.resolvedErrorMessage);
     }
   };
 
@@ -88,7 +86,6 @@ const LoginPage = (props) => {
             {t('registration.title')}
           </Link>
         </div>
-        <ToastContainer />
       </Form>
     </Formik>
   );

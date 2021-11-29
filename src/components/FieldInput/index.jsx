@@ -14,21 +14,21 @@ const FieldInput = (props) => {
   return (
     <>
       <label
-        className='text'
+        className='filed-input__label'
         htmlFor={name}
       >
         {text}
       </label>
       <Field
         innerRef={inputRef}
-        className='input'
+        className='filed-input__input'
         id={name}
         name={name}
         type={type}
       />
       <ErrorMessage
         component="div"
-        className="error"
+        className="filed-input__error"
         name={name}
       />
     </>

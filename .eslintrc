@@ -1,5 +1,8 @@
 {
   "extends": ["airbnb", "airbnb/hooks"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "rules": {
     "indent": ["warn", 2],
     "object-curly-newline": 1,
@@ -25,7 +28,8 @@
     "import/extensions": 0,
     "no-trailing-spaces": 1,
     "linebreak-style": 0,
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "import/prefer-default-export": "off"
   },
   "env": {
     "browser": true,

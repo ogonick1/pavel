@@ -2,14 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import Button from '../Button';
-import logo from './4.png';
+import logo from './logo.png';
 
 import './navbar.scss';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
 
-  const lngs = {
+  const langs = {
     en: { nativeName: t('languages.en') },
     ru: { nativeName: t('languages.ru') },
   };
@@ -32,17 +32,18 @@ const Navbar = () => {
   return (
     <nav>
       <ul className='menu'>
-        <img className='headcow' src={logo} alt="cow" />
+        <img className='logo' src={logo} alt="cow" />
         {navLinks.map((link) => {
           return <li className='menu-item'><NavLink activeclassname="select" to={link.to}>{t(link.title)}</NavLink></li>;
         })}
         <div className='btnlng'>
-          {Object.keys(lngs).map((lng) => (
+          {Object.keys(langs).map((lng) => (
             <Button
+              key={lng}
               className={i18n.resolvedLanguage === lng ? 'btn active' : 'btn'}
               onClick={() => i18n.changeLanguage(lng)}
               isSubmit
-              text={lngs[lng].nativeName}
+              text={langs[lng].nativeName}
             />
           ))}
         </div>

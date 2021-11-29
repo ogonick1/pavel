@@ -3,17 +3,12 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
-import AuthService from '../../services/authService';
-import {
-  setEmail,
-  setFirstName,
-  setLastName,
-  setPassword,
-} from '../../plugins/store/actions';
+import AuthService from '../../services/AuthService';
+import { setToken, setProfile } from '../../plugins/store/actions';
 import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
@@ -27,31 +22,26 @@ const initialValues = {
 };
 
 const RegistrationPage = (props) => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
   const {
-    setEmail,
-    setFirstName,
-    setLastName,
-    setPassword,
+    setToken,
+    setProfile,
   } = props;
 
   const onSubmit = async (values) => {
     try {
       const result = await AuthService.registration(values);
-      setEmail(result.email);
-      setFirstName(result.firstName);
-      setLastName(result.lastName);
-      setPassword(result.password);
-
+      setToken(result.token);
+      setProfile(result.user);
+      navigate('/');
     } catch (error) {
-      toast.error(error.data.message);
-      toast.error(error.statusText);
-      // eslint-disable-next-line no-console
-      console.log(error);
+      if (error.errorCode === 'USER_WITH_EMAIL_ALREADY_EXIST') {
+        toast.error(t('errors.USER_WITH_EMAIL_ALREADY_EXIST', { email: values.email }));
+      }
     }
   };
-
-  const { t } = useTranslation();
-  // eslint-disable-next-line no-console
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -81,7 +71,6 @@ const RegistrationPage = (props) => {
       onSubmit={onSubmit}
     >
       <Form className='form'>
-        <ToastContainer />
         <PageTitle text={t('registration.title')} />
         <FieldInput name='email' text={t('form.email')} type='email' />
         <FieldInput name='firstName' text={t('form.firstName')} type='text' />
@@ -101,10 +90,8 @@ const RegistrationPage = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setEmail: (email) => dispatch(setEmail(email)),
-    setFirstName: (firstName) => dispatch(setFirstName(firstName)),
-    setLastName: (lastName) => dispatch(setLastName(lastName)),
-    setPassword: (password) => dispatch(setPassword(password)),
+    setToken: (token) => dispatch(setToken(token)),
+    setProfile: (profile) => dispatch(setProfile(profile)),
   };
 };
 
