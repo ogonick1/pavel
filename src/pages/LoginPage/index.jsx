@@ -11,7 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import FieldInput from '../../components/FieldInput';
-import AuthService from '../../services/AuthService';
+import AuthService from '../../services/authService';
 import { setToken, setProfile } from '../../plugins/store/actions';
 import PageTitle from '../../components/pageTitle';
 

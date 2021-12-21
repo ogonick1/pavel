@@ -6,7 +6,7 @@ import {
 import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
 import { dateTimeFormats } from '../../utils/constants';
-import AuthService from '../../services/AuthService';
+import AuthService from '../../services/authService';
 import PageTitle from '../../components/pageTitle';
 
 import './index.scss';
