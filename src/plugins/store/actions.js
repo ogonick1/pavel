@@ -1,4 +1,7 @@
-import { SET_TOKEN, SET_PROFILE } from './actionTypes';
+import {
+  SET_TOKEN,
+  SET_PROFILE,
+} from './actionTypes';
 
 export const setProfile = (profile) => ({
   type: SET_PROFILE,

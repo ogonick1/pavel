@@ -1,4 +1,7 @@
-import { SET_PROFILE, SET_TOKEN } from './actionTypes';
+import {
+  SET_PROFILE,
+  SET_TOKEN,
+} from './actionTypes';
 
 const initialState = {
   token: null,

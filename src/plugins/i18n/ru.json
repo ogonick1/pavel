@@ -1,27 +1,39 @@
 {
-    "profile-page": {
-      "title": "Главная страница"
-    },
-    "login-page": {
-        "title": "Авторизация"
-    },
-    "registration": {
-        "title": "Зарегистрироватся"
-    },
-    "validation-errors":{
-        "email": "Неправильный email адрес",
-        "required": "Обязательное поле",
-        "min": "Минимум 3 символа",
-        "max": "Не больше 16 символов",
-        "minpas": "Минимум 4 символа",
-        "maxpas": "Не больше 10 символов",
-        "repeatpas": "Пароли не совпадают"
-    },
-    "form":{
-        "email": "Введите Ваш емейл",
-        "password": "Введите пароль",
-        "repeat-pas": "Повторите пароль",
-        "first-name": "Ведите Ваше имя",
-        "last-name": "Введите вашу фамилию"
-    }
+	"profilePage": {
+		"title": "Главная страница"
+	},
+	"loginPage": {
+		"title": "Авторизация"
+	},
+	"registration": {
+		"title": "Зарегистрироватся"
+	},
+	"validationErrors": {
+		"email": "Неправильный email адрес",
+		"required": "Обязательное поле",
+		"minLength": "Минимум {{min}} символа",
+		"minMaxLength": "Длинна должна быть от {{min}} до {{max}} символов.",
+		"repeatPassword": "Пароли не совпадают"
+	},
+	"form": {
+		"email": "Ваш емейл: ",
+		"password": "Введите пароль: ",
+		"repeatPassword": "Повторите пароль: ",
+		"firstName": "Ваше имя: ",
+		"lastName": "Ваша фамилия: ",
+		"registered": "Зарегестрированы: "
+	},
+	"languages": {
+		"en": "Английский",
+		"ru": "Русский"
+	},
+	"errors": {
+    "DEFAULT": "Something went wrong -ru",
+    "INTERNAL_SERVER_ERROR": "Server Error -ru",
+    "USER_BY_PROVIDED_TOKEN_NOT_FOUND": "User by provided token not found -ru",
+    "USER_WITH_EMAIL_NOT_EXIST": "User with {{email}} not exist -ru",
+    "USER_WITH_EMAIL_ALREADY_EXIST": "User with {{email}} already exist -ru",
+    "BAD_REQUEST_EMAIL_OR_PASSWORD_NOT_PROVIDED": "Email or password not provided -ru",
+    "BAD_REQUEST_WRONG_PASSWORD": "Wrong password -ru"
   }
+}

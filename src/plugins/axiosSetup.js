@@ -1,6 +1,7 @@
 import axios from 'axios';
+import ErrorResolver from '../utils/ErrorResolver';
 import appConfig from '../config';
-import store from './store';
+import { store } from './store';
 
 const axiosSetup = () => {
   axios.interceptors.request.use(
@@ -15,7 +16,8 @@ const axiosSetup = () => {
   axios.interceptors.response.use(
     (response) => response.data,
     (error) => {
-      return Promise.reject(error.response);
+      const resolvedError = ErrorResolver.resolve(error);
+      return Promise.reject(resolvedError);
     },
   );
 };

@@ -1,0 +1,44 @@
+@import "../../global/styles/variables";
+
+.form {
+  margin: 0 auto;
+  padding: 35px;
+  width: 500px;
+  height: auto;
+  border-radius: 15px;
+  border: 1px solid #808080;
+  background: $white;
+}
+
+.text {
+  margin-top: 15px;
+}
+
+.login {
+  text-align: center;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.btnsumbit {
+  width: 190px;
+  height: 50px;
+  margin-top: 15px;
+  color: $white;
+  background: $blue;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.link {
+  font-size: 20px;
+  margin-left: 100px;
+  color: $black;
+  cursor: pointer;
+  &:hover {
+    color:$blue;
+  }
+}

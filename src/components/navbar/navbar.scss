@@ -1,0 +1,44 @@
+@import '../../global/styles/variables';
+
+.logo{
+  width: 50px;
+  height: auto;
+}
+
+.menu {
+  height: 50px;
+  width: auto;
+  padding-left: 30px;
+  padding-right: 300px;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  background: $white;
+
+  .btn {
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+    background: $white;
+  }
+
+  .active{
+    color: $blue;
+    text-decoration-line: underline;
+  }
+
+  .menu-item {
+    list-style: none;
+    line-height: 50px;
+
+    a {
+      color: $black;
+      text-decoration-line: none;
+    }
+
+    .active{
+      color: $blue;
+      text-decoration-line: underline;
+    }
+  }
+}

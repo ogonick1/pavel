@@ -1,0 +1,19 @@
+@import "../../global/styles/variables";
+
+.profile-page {
+  text-align: center;
+}
+
+.title {
+  font-size: 35px;
+  padding-top: 100px;
+  min-height: 100px;
+  min-width: 100px;
+  text-align: center;
+  color: $black;
+}
+
+.info {
+  font-size: 25px;
+  line-height: 35px;
+}
